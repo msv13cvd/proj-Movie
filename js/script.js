@@ -30,18 +30,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if(newFilm){
                 if(newFilm.length > 21){
-                    newFilm = `${newFilm.substr(0, 21)}...`;
-               
+                    newFilm = `${newFilm.substr(0, 21)}...`;     
                 }
+
                 if (favorite) {
                     console.log(`${newFilm}: Избранный вами фильм`);
                 }
+
                 movieDB.movies.push(newFilm);
                 ArrSort(movieDB.movies);
                 createMovieList(movieDB.movies, listOfFilms);
             }
 
-            ArrSort(movieDB.movies);
 
             event.target.reset();
         });
@@ -79,11 +79,13 @@ function createMovieList(element, selector){
     });
 
     document.querySelectorAll('.delete').forEach((btn, i)=>{
+
         btn.addEventListener('click', ()=>{
             btn.parentElement.remove();
             movieDB.movies.splice(i, 1);
             createMovieList(element, selector);
         });
+
     });
 };
 
